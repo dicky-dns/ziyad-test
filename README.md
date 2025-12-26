@@ -37,7 +37,6 @@ docker compose up -d --build
 copy .env.example menjadi .env
 
 #Jalankan composer install & atur ownership
-
 docker exec -it ziyad_app composer install --no-interaction --prefer-dist
 sudo chown -R 33:33 storage bootstrap/cache
 
