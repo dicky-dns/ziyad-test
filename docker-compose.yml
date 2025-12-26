@@ -8,7 +8,7 @@ services:
     container_name: ziyad_app
     restart: unless-stopped
     working_dir: /var/www
-    user: "33:33"  # pakai www-data
+    user: "33:33"
     volumes:
       - ./storage:/var/www/storage
       - ./bootstrap/cache:/var/www/bootstrap/cache
