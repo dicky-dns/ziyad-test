@@ -16,9 +16,7 @@ WORKDIR /var/www
 
 COPY . .
 
-RUN chown -R www-data:www-data storage bootstrap/cache \
-    && chmod -R 775 storage bootstrap/cache
-
-USER www-data
+RUN chown -R www-data:www-data storage bootstrap/cache
+RUN chmod -R 775 storage bootstrap/cache
 
 CMD ["php-fpm"]

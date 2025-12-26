@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   app:
     build:
@@ -8,10 +6,7 @@ services:
     container_name: ziyad_app
     restart: unless-stopped
     working_dir: /var/www
-    user: "33:33"
     volumes:
-      - ./storage:/var/www/storage
-      - ./bootstrap/cache:/var/www/bootstrap/cache
       - ./:/var/www
     depends_on:
       - postgres
@@ -41,7 +36,7 @@ services:
       POSTGRES_USER: ziyad_user
       POSTGRES_PASSWORD: secret
     ports:
-      - "5433:5432"
+      - "5433:5432" 
     volumes:
       - pgdata:/var/lib/postgresql/data
     networks:
