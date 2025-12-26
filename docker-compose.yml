@@ -7,6 +7,9 @@ services:
     restart: unless-stopped
     working_dir: /var/www
     volumes:
+      volumes:
+      - ./storage:/var/www/storage
+      - ./bootstrap/cache:/var/www/bootstrap/cache
       - ./:/var/www
     depends_on:
       - postgres
