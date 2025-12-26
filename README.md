@@ -7,7 +7,7 @@ Practical Test Ziyad Books
 ## 📦 Tech Stack
 
 * Laravel 12
-* PHP 8.2 (FPM)
+* PHP 8.3 (FPM)
 * PostgreSQL 16
 * Nginx (alpine)
 * Docker & Docker Compose
