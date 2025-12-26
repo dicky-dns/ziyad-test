@@ -27,12 +27,18 @@ Pastikan di laptop sudah terinstall:
 
 ```bash
 git clone <URL_REPOSITORY_GIT>
-cd <nama-folder-project>
 
+cd <folder-project>
+
+#jalankan docker compose
 docker compose up -d --build
 
+#buat .env
+copy .env-example menjadi .env
+
+#jalankan app key generate dan migrasi & seeder
 docker exec -it ziyad_app php artisan key:generate
-docker exec -it ziyad_app php artisan migrate
+docker exec -it ziyad_app php artisan migrate --seed
 
 ```
 
@@ -58,7 +64,7 @@ project-laravel/
 
 ---
 
-## 🗄️ Konfigurasi Database 
+## 🗄️ Konfigurasi Database
 
 ```env
 DB_CONNECTION=pgsql
@@ -69,7 +75,7 @@ DB_USERNAME=ziyad_user
 DB_PASSWORD=secret
 ```
 
-> ⚠️ Jangan ganti `DB_HOST` menjadi `localhost`.
+> ⚠️ Jangan ganti `DB_HOST` menjadi `localhost`, Konfigurasi database di `.env` harus seperti ini sesuai dengan `docker-compose.yml`.
 
 ---
 
