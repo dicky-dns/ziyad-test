@@ -4,32 +4,47 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: ziyad_app
-    command: php artisan serve --host=0.0.0.0 --port=8000
+    restart: unless-stopped
+    working_dir: /var/www
     volumes:
-      - .:/var/www/html
-    ports:
-      - "8000:8000"
+      - ./:/var/www
     depends_on:
-      - db
-    environment:
-      APP_ENV: local
-      APP_DEBUG: "true"
-      DB_CONNECTION: pgsql
-      DB_HOST: db
-      DB_PORT: 5432
-      DB_DATABASE: library
-      DB_USERNAME: library_user
-      DB_PASSWORD: secret
+      - postgres
+    networks:
+      - app_network
 
-  db:
+  nginx:
+    image: nginx:alpine
+    container_name: ziyad_nginx
+    restart: unless-stopped
+    ports:
+      - "8000:80"
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+    networks:
+      - app_network
+
+  postgres:
     image: postgres:16
-    container_name: ziyad_db
+    container_name: postgres_db
+    restart: unless-stopped
     environment:
-      POSTGRES_DB: library
-      POSTGRES_USER: library_user
+      POSTGRES_DB: ziyad_db
+      POSTGRES_USER: ziyad_user
       POSTGRES_PASSWORD: secret
+    ports:
+      - "5433:5432" 
     volumes:
       - pgdata:/var/lib/postgresql/data
+    networks:
+      - app_network
 
 volumes:
   pgdata:
+
+networks:
+  app_network:
+    driver: bridge
