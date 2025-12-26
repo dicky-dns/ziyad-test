@@ -72,6 +72,10 @@
   <span class="text-gray-400"># Copy .env-example</span>
   copy .env-example menjadi .env
 
+  <span class="text-gray-400"># Jalankan composer install & atur ownership</span>
+  docker exec -it ziyad_app composer install --no-interaction --prefer-dist
+  sudo chown -R 33:33 storage bootstrap/cache
+
   <span class="text-gray-400"># Generate key & migrate database</span>
   docker exec -it ziyad_app php artisan key:generate
   docker exec -it ziyad_app php artisan migrate --seed

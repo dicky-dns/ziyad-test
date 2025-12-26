@@ -36,9 +36,11 @@ docker compose up -d --build
 #buat .env
 copy .env.example menjadi .env
 
-#Jalankan composer install
+#Jalankan composer install & atur ownership
 
 docker exec -it ziyad_app composer install --no-interaction --prefer-dist
+sudo chown -R 33:33 storage bootstrap/cache
+
 
 #jalankan app key generate dan migrasi & seeder
 docker exec -it ziyad_app php artisan key:generate
