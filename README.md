@@ -34,7 +34,7 @@ cd <folder-project>
 docker compose up -d --build
 
 #buat .env
-copy .env-example menjadi .env
+copy .env.example menjadi .env
 
 #jalankan app key generate dan migrasi & seeder
 docker exec -it ziyad_app php artisan key:generate
