@@ -85,23 +85,6 @@
   </section>
 
   <section class="mb-6">
-    <h2 class="text-2xl font-bold mb-2">🗄️ Konfigurasi Database</h2>
-    <pre class="bg-gray-800 p-4 rounded-lg overflow-x-auto relative">
-      <button class="absolute top-2 right-2 bg-gray-700 text-gray-100 px-2 py-1 rounded cursor-pointer text-sm hover:bg-gray-600" onclick="copyCode(this)">Copy</button>
-<code class="text-green-400">
-DB_CONNECTION=pgsql
-DB_HOST=postgres
-DB_PORT=5432
-DB_DATABASE=ziyad_db
-DB_USERNAME=ziyad_user
-DB_PASSWORD=secret
-</code>
-    </pre>
-    <p class="text-gray-400 mt-2">⚠️ Jangan ganti <code>DB_HOST</code> menjadi <code>localhost</code>. Konfigurasi harus sesuai <code>docker-compose.yml</code>.</p>
-    <hr class="border-gray-700 my-4">
-  </section>
-
-  <section class="mb-6">
     <h2 class="text-2xl font-semibold mb-2">Struktur Folder</h2>
     <pre class="bg-gray-800 p-4 rounded-md overflow-x-auto text-sm">
     project-laravel/
@@ -121,26 +104,23 @@ DB_PASSWORD=secret
     <hr class="border-gray-700 my-4">
   </section>
 
-  <section class="mb-6">
-    <h2 class="text-2xl font-bold mb-2">🔧 Useful Commands</h2>
+    <section class="mb-6">
+    <h2 class="text-2xl font-bold mb-2">🗄️ Konfigurasi Database</h2>
     <pre class="bg-gray-800 p-4 rounded-lg overflow-x-auto relative">
-    <button class="absolute top-2 right-2 bg-gray-700 text-gray-100 px-2 py-1 rounded cursor-pointer text-sm hover:bg-gray-600" onclick="copyCode(this)">Copy</button>
-    <code class="text-green-400">
-      <span class="text-gray-400"># Stop container</span>
-      docker compose down
-
-      <span class="text-gray-400"># Lihat container</span>
-      docker ps
-
-      <span class="text-gray-400"># Masuk container Laravel</span>
-      docker exec -it ziyad_app bash
-
-      <span class="text-gray-400"># Masuk PostgreSQL</span>
-      docker exec -it postgres_db psql -U ziyad_user -d ziyad_db
-    </code>
+      <button class="absolute top-2 right-2 bg-gray-700 text-gray-100 px-2 py-1 rounded cursor-pointer text-sm hover:bg-gray-600" onclick="copyCode(this)">Copy</button>
+      <code class="text-green-400">
+        DB_CONNECTION=pgsql
+        DB_HOST=postgres
+        DB_PORT=5432
+        DB_DATABASE=ziyad_db
+        DB_USERNAME=ziyad_user
+        DB_PASSWORD=secret
+      </code>
     </pre>
+    <p class="text-gray-400 mt-2">⚠️ Jangan ganti <code>DB_HOST</code> menjadi <code>localhost</code>. Konfigurasi harus sesuai <code>docker-compose.yml</code>.</p>
     <hr class="border-gray-700 my-4">
   </section>
+
 
   <section class="mb-6">
     <h2 class="text-2xl font-bold mb-2">❗ Troubleshooting</h2>

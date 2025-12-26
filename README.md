@@ -85,24 +85,6 @@ DB_PASSWORD=secret
 
 ---
 
-## 🔧 Useful Commands
-
-```bash
-# Stop container
-docker compose down
-
-# Lihat container
-docker ps
-
-# Masuk container Laravel
-docker exec -it laravel_app bash
-
-# Masuk PostgreSQL
-docker exec -it postgres_db psql -U laravel_user -d laravel_db
-```
-
----
-
 ## ❗ Troubleshooting
 
 * **Database connection refused** → pastikan `DB_HOST=postgres`
