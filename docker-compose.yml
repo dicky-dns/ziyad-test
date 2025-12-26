@@ -1,0 +1,35 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ziyad_app
+    command: php artisan serve --host=0.0.0.0 --port=8000
+    volumes:
+      - .:/var/www/html
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      APP_ENV: local
+      APP_DEBUG: "true"
+      DB_CONNECTION: pgsql
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_DATABASE: library
+      DB_USERNAME: library_user
+      DB_PASSWORD: secret
+
+  db:
+    image: postgres:16
+    container_name: ziyad_db
+    environment:
+      POSTGRES_DB: library
+      POSTGRES_USER: library_user
+      POSTGRES_PASSWORD: secret
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
