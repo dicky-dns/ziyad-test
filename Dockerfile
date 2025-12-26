@@ -17,7 +17,6 @@ WORKDIR /var/www
 
 COPY . .
 
-RUN composer install --no-interaction --prefer-dist
 RUN chown -R www-data:www-data storage bootstrap/cache
 RUN chmod -R 775 storage bootstrap/cache
 
