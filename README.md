@@ -46,6 +46,11 @@ sudo chown -R 33:33 storage bootstrap/cache
 docker exec -it ziyad_app php artisan key:generate
 docker exec -it ziyad_app php artisan migrate --seed
 
+
+#Done ✅
+# Jalankan pada postman / Insomnia base url http://localhost:8000
+
+
 ```
 
 ---

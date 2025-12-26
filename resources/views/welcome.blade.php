@@ -79,6 +79,11 @@
   <span class="text-gray-400"># Generate key & migrate database</span>
   docker exec -it ziyad_app php artisan key:generate
   docker exec -it ziyad_app php artisan migrate --seed
+
+
+  <span class="text-gray-400"># DONE ✅</span>
+
+  <span class="text-gray-400"># Jalankan pada postman / Insomnia base url http://localhost:8000</span>
 </code>
     </pre>
     <hr class="border-gray-700 my-4">
